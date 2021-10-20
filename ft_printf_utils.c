@@ -56,7 +56,6 @@ int print_void(void *str, int len)
 {
 	unsigned long int aux;
 	char 	*aux2;
-	int i;
 
 	aux = (unsigned long int)str;
 	aux2 = itoa_hexa(aux, "0123456789abcdefg");

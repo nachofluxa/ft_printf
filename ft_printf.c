@@ -1,7 +1,7 @@
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *, ...)
+int	ft_printf(const char *str, ...)
 {
 	int	len;
 	size_t i;
@@ -31,24 +31,24 @@ int	ft_printf(const char *, ...)
 int ft_printf2(va_list args, char c, int len)
 {
 	if (c == 'c')
-		len = print_char(va_arg(argc, int), len);
-	else nif (c == 's')
-		len = print_str(va_arg(argc, char *), len);
+		len = print_char(va_arg(args, int), len);
+	else if (c == 's')
+		len = print_str(va_arg(args, char *), len);
 	else if (c == 'p')
-		len = print_void(va_arg(argc, void *), len);
+		len = print_void(va_arg(args, void *), len);
 	else if (c == 'd' || c == 'i')
-		len = print_str2(itoa(va_arg(argc, int), 0), len);
+		len = print_str2(itoa(va_arg(args, int), 0), len);
 	else if (c == 'u')
-		len = print_str2(itoa(va_arg(argc, unsigned int), 1), len);
+		len = print_str2(itoa(va_arg(args, unsigned int), 1), len);
 	else if (c == 'x')
-		len = print_str2(itoa_hexa(va_arg(argc, int),
+		len = print_str2(itoa_hexa(va_arg(args, int),
 			"0123456789abcdefg"), len);
 	else if (c == 'X')
-		len = print_str2(itoa_hexa(va_arg(argc, int), 
+		len = print_str2(itoa_hexa(va_arg(args, int), 
 			"0123456789ABCDEFG"), len);
 	else if (c == '%')
 	{
-		write(1, "%",1)
+		write(1, "%",1);
 		len++;
 	}
 	return (len);

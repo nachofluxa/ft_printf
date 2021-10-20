@@ -38,7 +38,7 @@ char *itoa_hexa(unsigned long int n, char *base)
 	while (i > 0 && n > 15)
 	{
 		str[i] = base[n % 16];
-		str = str / 16;
+		n = n / 16;
 		i--;
 	}
 	str[i--] = base[n % 16];
